@@ -1,0 +1,79 @@
+<div class="text-layout">
+    <h1>No cumunes</h1>
+    <p>
+        Pipes incluidos en angular poco usados, en common module
+    </p>
+<div class="grid">
+    <div class="col md:col-6 sm:col-9">
+        <p-fieldset legend="i18n selsct" [toggleable]="true">
+        <p>hola {{nombre}} es un gusto {{genero | i18nSelect:mapa}}</p>
+        <button pButton icon="pi pi-check"  class="p-button-info" type="button" label="cambiar cliente" (click)="cambiarCliente()" ></button>
+        </p-fieldset>
+    </div>
+
+    <div class="col md:col-6 sm:col-9">
+        <p-fieldset legend="i18n plural" [toggleable]="true">
+            <p>visitas del dia: {{clientes.length | i18nPlural:clientesMapa}}</p>
+
+            <button pButton type="button" icon="pi pi-trash" class="p-button-danger" label="quiatar cliente" (click)="quitarCliente()" ></button>
+        </p-fieldset>
+    </div>
+
+    <div class="col md:col-6 sm:col-9">
+        <p-fieldset legend="slice plural" [toggleable]="true">
+            <p>original</p>
+            <pre>  {{clientes}}</pre>
+
+            <p>slice 0:2</p>
+            <pre>  {{clientes | slice:0:2 }}</pre>
+            <p>slice 2:2</p>
+            <pre>  {{clientes | slice:1:3 }}</pre>
+          
+        </p-fieldset>
+    </div>
+
+    <div class="col md:col-6 sm:col-9">
+        <p-fieldset legend="key-value pipe" [toggleable]="true">
+            
+            <ul>
+                <li *ngFor="let item of persona | keyvalue">
+                    {{item.key | uppercase}}: {{item.value}}
+                </li>
+            </ul>
+          
+        </p-fieldset>
+    </div>
+
+    <div class="col md:col-6 sm:col-9">
+        <p-fieldset legend="json pipe" [toggleable]="true">
+            
+            <ul>
+                <li>
+                    {{persona | json}}
+                </li>
+            </ul>
+          
+        </p-fieldset>
+    </div>
+
+    <div class="col md:col-6 sm:col-9">
+        <p-fieldset legend="async pipe observable" [toggleable]="true">        
+            
+                    {{miObservable | async}}             
+          
+        </p-fieldset>
+    </div>
+
+    <div class="col md:col-6 sm:col-9">
+        <p-fieldset legend="async pipe promise" [toggleable]="true">        
+           <div *ngIf="!(miPromesa | async)">
+            <b>Cargando  {{miObservable | async}} </b>
+           </div>
+            
+                    {{miPromesa | async}}             
+          
+        </p-fieldset>
+    </div>
+
+</div>
+</div>

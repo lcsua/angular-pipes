@@ -1,0 +1,57 @@
+<div class="text-layout">
+    <h1>Pipes personalizados</h1>
+    <p>
+        Pipes hechos a mano
+    </p>
+</div>
+
+<div class="col md:col-6 sm:col-9">
+    <p-fieldset legend="Personalizado mayusculas" [toggleable]="true">        
+        
+        <p>{{ 'nosotros' | uppercase }}</p>
+        <p>{{ 'esto es un texto de ejemplo' | mayusculas:isMayus }}</p>
+        <button pButton icon="pi pi-check"  
+        class="p-button-info" type="button" 
+        label="cambiar texto" (click)="cambiarCase()" ></button>
+    </p-fieldset>
+</div>
+
+<p-toolbar>
+    <div class="p-toolbar-group-left">
+       
+        
+        </div>
+    
+    <div class="p-toolbar-group-right">
+        <button pButton icon="pi pi-sort"
+            label="por nombre"></button>
+       
+    </div>
+</p-toolbar>
+
+<div class="grid">
+    <div class="col mt-2">
+        <p-table [value]="heroes">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>nombre</th>
+                    <th>vuela</th>
+                    <th>color</th>                  
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-heroe>
+                <tr>
+                    <td>{{heroe.nombre}}</td>
+                    <td>{{heroe.vuela | vuela | titlecase}}</td>
+                    <td>{{heroe.color}}</td>
+                  
+                </tr>
+            </ng-template>
+        </p-table>
+        
+    </div>
+</div>
+
+
+
+
